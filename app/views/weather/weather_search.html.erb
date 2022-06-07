@@ -1,0 +1,96 @@
+<br><br>  
+  <div class="container">
+  <div class="row ">
+
+    <div class="col-md-4">
+
+    <div class="">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="">
+        <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
+        <form action="/weather_search">
+          <div class="input-group rounded mb-3">
+            <select class="form-select" aria-label="Default select example" name="city">
+              <option value="Medellín">Medellín</option>
+              <option value="Bogotá">Bogotá</option>
+              <option value="Cali">Cali</option>
+              <option value="Cartagena">Cartagena</option>
+            </select>
+            <button class="btn btn-success" type="submit">Search</button>
+          </div>
+
+        <div class="mb-4 pb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="temp" id="inlineRadio1"
+              value="Metric" checked />
+            <label class="form-check-label" for="inlineRadio1">Celsius</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="temp" id="inlineRadio2"
+              value="Default" />
+            <label class="form-check-label" for="inlineRadio2">Farenheit</label>
+          </div>
+        </div>
+        </form>
+
+        <div class="card shadow-0 border">
+          <div class="card-body p-4">
+            <center> <img src="http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"> </center>
+            <h3 class="mb-1 sfw-normal"><%= @data["name"] %>, <%=@data["sys"]["country"] %></h3>
+            <p class="mb-2">Current temperature: <strong><%= @data["main"]["temp"] %><%= @temp %></strong></p>
+            <p>Feels like: <strong><%= @data["main"]["feels_like"] %><%= @temp %></strong></p>
+            <p>Max: <strong><%= @data["main"]["temp_min"]%><%= @temp %></strong>, Min: <strong> <%= @data["main"]["temp_max"] %><%= @temp %></strong></p>
+            <div class="container">
+                <p> <strong> <%= @data["weather"].first["main"] %> | <%= @data["weather"].first["description"] %> </strong> </p> 
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+    </div>
+
+    <div class="col-md-8">
+    <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Medell%C3%ADn+()&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="400" frameborder="0"></iframe> <a href='https://addmap.net/'>https://Addmap.net</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=f9155ca067d1bed5b3bdd2fc342f4fcc098733d5'></script>
+        
+        
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+  </div>
+</div>

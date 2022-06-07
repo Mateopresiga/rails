@@ -1,0 +1,51 @@
+<section>
+  <div class="container py-4 h-100">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6 col-xl-4">
+
+        <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
+        <form action="/weather_search">
+          <div class="input-group rounded mb-3">
+            <select class="form-select" aria-label="Default select example" name="city">
+              <option value="Medellín">Medellín</option>
+              <option value="Bogotá">Bogotá</option>
+              <option value="Cali">Cali</option>
+              <option value="Cartagena">Cartagena</option>
+            </select>
+            <button class="btn btn-success" type="submit">Search</button>
+          </div>
+
+        <div class="mb-4 pb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="temp" id="inlineRadio1"
+              value="Metric" checked />
+            <label class="form-check-label" for="inlineRadio1">Celsius</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="temp" id="inlineRadio2"
+              value="Default" />
+            <label class="form-check-label" for="inlineRadio2">Farenheit</label>
+          </div>
+        </div>
+        </form>
+
+        <div class="card shadow-0 border">
+          <div class="card-body p-4">
+            <center> <img src="http://openweathermap.org/img/wn/<%= @data["weather"].first["icon"]%>@2x.png"> </center>
+            <h3 class="mb-1 sfw-normal"><%= @data["name"] %>, <%=@data["sys"]["country"] %></h3>
+            <p class="mb-2">Current temperature: <strong><%= @data["main"]["temp"] %>°C</strong></p>
+            <p>Feels like: <strong><%= @data["main"]["feels_like"] %>°C</strong></p>
+            <p>Max: <strong><%= @data["main"]["temp_min"]%>°C</strong>, Min: <strong> <%= @data["main"]["temp_max"] %>°C</strong></p>
+            <div class="container">
+                <p> <strong> <%= @data["weather"].first["main"] %> | <%= @data["weather"].first["description"] %> </strong> </p> 
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

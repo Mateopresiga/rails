@@ -1,0 +1,16 @@
+version: '2'
+services: 
+    app: 
+        build: .
+        command: bundle exec rails s -p 3000 -b '0.0.0.0'
+        volumes: 
+            - ".:/app"
+        ports: 
+            - "3001:3000"
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        environment:
+            DB_USER: root
+            DB_NAME: Learning_environment
+            DB_PASSWORD: admin
+            DB_HOST: db
